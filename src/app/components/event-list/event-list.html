@@ -1,0 +1,30 @@
+<div class="event-list-container">
+  <h2 class="page-title">Upcoming Events</h2>
+
+  @if (loading()) {
+    <div class="message loading">
+        Loading....
+    </div>
+  } @else if(error){
+    <div class="message error">{{error}}</div>
+  }
+
+  @if(!loading() && !error){
+  <div class="event-grid" >
+    <div *ngFor="let event of events" class="event-card">
+      <h3>{{ event.title }}</h3>
+      <p class="description">{{ event.description }}</p>
+      <p class="meta"><strong>Date:</strong> {{ event.date | date }}</p>
+      <p class="meta"><strong>Location:</strong> {{ event.location }}</p>
+  <button class="btn btn-primary" [routerLink]="['/events', event.id]">View Details</button>
+
+    </div>
+  </div>
+  }
+
+  @if(!loading() && !error && events.length === 0){
+  <div class="message empty">
+    No events found.
+  </div>
+}
+</div>

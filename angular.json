@@ -22,6 +22,7 @@
               }
             ],
             "styles": [
+              "C:/Users/vaibh/Documents/Book my seat/node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "server": "src/main.server.ts",
