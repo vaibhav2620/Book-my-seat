@@ -1,4 +1,4 @@
-.event-list-container {
+/* .event-list-container {
   padding: 2rem;
   max-width: 900px;
   margin: auto;
@@ -60,4 +60,148 @@
 
 .empty {
   color: #888;
+} */
+
+/* ---------- GLOBAL PAGE ---------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.events-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background-attachment: fixed;
+  color: #fff;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.navbar-user .username {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* ---------- EVENTS CONTAINER ---------- */
+.events-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 30px 80px;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- EVENT GRID ---------- */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ---------- EVENT CARD ---------- */
+.event-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- EVENT CONTENT ---------- */
+.event-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #d6d6d6;
+  margin-bottom: 4px;
+}
+
+/* ---------- BUTTON ---------- */
+.btn-primary {
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  transform: translateY(-2px);
+}
+
+/* ---------- MESSAGE STATES ---------- */
+.message {
+  margin-top: 40px;
+  font-size: 1.1rem;
+}
+
+.message.loading {
+  color: #d1d5db;
+}
+
+.message.error {
+  color: #ff7b7b;
+}
+
+.message.empty {
+  color: #ddd;
+  font-style: italic;
 }

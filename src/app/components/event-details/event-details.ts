@@ -98,16 +98,19 @@ import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { NavbarCommon } from "../shared/navbar-common/navbar-common";
+
 
 @Component({
   selector: 'app-event-details',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NavbarCommon],
   templateUrl: './event-details.html',
   styleUrls: ['./event-details.css']
 })
 export class EventDetails implements OnInit {
-  
+
+  username  = localStorage?.getItem('user') ? JSON.parse(localStorage.getItem('user')!).name : 'Guest';
   eventId: number = 0;
   event: any = null;
   seats: any[] = [];
@@ -118,7 +121,7 @@ export class EventDetails implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {

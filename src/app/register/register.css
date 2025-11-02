@@ -1,0 +1,167 @@
+/* register.component.css - production-grade, responsive */
+
+/* Reset-ish helpers inside component scope */
+:host { display: block; width: 100%; }
+
+/* Full-viewport wrapper with fixed background color/gradient */
+.page-wrapper {
+  min-height: 100vh;                      /* ensures full viewport coverage */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2b1055 0%, #7597de 100%); /* same tone as login */
+  padding: 48px 20px;                     /* breathing room on small screens */
+  box-sizing: border-box;
+}
+
+/* Optional decorative background element (keeps edges interesting) */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.04), transparent 10%),
+              radial-gradient(circle at 90% 80%, rgba(0,0,0,0.06), transparent 10%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* The center column that scrolls if necessary */
+.form-viewport {
+  position: relative;
+  z-index: 1;                       /* above background */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card container: centered, responsive, and scroll-friendly */
+.register-card {
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 34px 30px;
+  box-shadow: 0 20px 50px rgba(11, 22, 55, 0.18);
+  text-align: left;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Titles */
+.card-title {
+  margin: 0 0 6px 0;
+  color: #2b1055;
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+}
+
+.card-sub {
+  margin: 0 0 20px 0;
+  text-align: center;
+  color: #666;
+  font-size: 13.5px;
+}
+
+/* Form layout */
+.register-form { width: 100%; }
+.form-group { margin-bottom: 16px; }
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Inputs & selects */
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e6ef;
+  background: #fbfbff;
+  font-size: 14px;
+  color: #222;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .08s;
+}
+
+.form-control::placeholder { color: #bfc7d9; }
+
+.form-control:focus {
+  outline: none;
+  border-color: #6b5dd6;
+  box-shadow: 0 6px 20px rgba(107,93,214,0.12);
+  transform: translateY(-1px);
+}
+
+/* Error message */
+.field-error {
+  margin-top: 6px;
+  color: #c62828;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Actions */
+.form-actions { margin-top: 12px; display: flex; gap: 12px; }
+
+/* Primary button */
+.btn-primary {
+  flex: 1 1 auto;
+  display: inline-block;
+  background: linear-gradient(135deg,#2b1055,#5b6bd6);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(43,16,85,0.18);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* small note under form */
+.small-note {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+}
+
+.small-note .link {
+  color: #2b1055;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.small-note .link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive: keep card smaller on tiny screens */
+@media (max-width: 480px) {
+  .register-card { padding: 26px 18px; border-radius: 12px; }
+  .card-title { font-size: 18px; }
+  .card-sub { font-size: 13px; }
+}
+
+/* If the page has longer content, allow the wrapper to scroll while keeping background fixed */
+@media (min-height: 700px) {
+  .page-wrapper { align-items: center; }
+}

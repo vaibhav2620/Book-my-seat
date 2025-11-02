@@ -1,0 +1,129 @@
+<!-- register.component.html -->
+<div class="page-wrapper">
+  <div class="bg-decor" aria-hidden="true"></div>
+
+  <main class="form-viewport" role="main">
+    <section class="register-card" aria-labelledby="registerTitle">
+      <h1 id="registerTitle" class="card-title">Create account</h1>
+      <p class="card-sub">Join our community and reserve seats for your events.</p>
+
+      <form (ngSubmit)="registerUser()" #registerForm="ngForm" novalidate class="register-form">
+
+        <!-- Username -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Enter a username"
+            required
+            [(ngModel)]="username"
+            #usernameField="ngModel"
+            class="form-control"
+            aria-required="true"
+          />
+          @if(usernameField.invalid && usernameField.touched) {
+          <div class="field-error">
+            Username is required.
+          </div>
+        }
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            required
+            [(ngModel)]="email"
+            #emailField="ngModel"
+            class="form-control"
+            aria-required="true"
+          />
+          @if(emailField.invalid && emailField.touched) {
+          <div class="field-error">
+            A valid email is required.
+          </div>
+        }
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Create a password (min 6 chars)"
+            required
+            minlength="6"
+            [(ngModel)]="password"
+            #passwordField="ngModel"
+            class="form-control"
+            aria-required="true"
+          />
+          @if(passwordField.invalid && passwordField.touched) {
+          <div class="field-error">
+            Password must be at least 6 characters.
+          </div>
+        }
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            placeholder="Re-enter your password"
+            required
+            [(ngModel)]="confirmPassword"
+            #confirmPasswordField="ngModel"
+            class="form-control"
+            aria-required="true"
+          />
+          @if(confirmPasswordField.invalid && confirmPasswordField.touched) {
+          <div class="field-error">
+            Please confirm your password.
+          </div>
+        }
+        @if(password && confirmPassword && password !== confirmPassword) {
+          <div class="field-error">
+            Passwords do not match.
+          </div>
+        }
+        </div>
+
+        <!-- Role -->
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" name="role" [(ngModel)]="role" class="form-control">
+            <option value="CUSTOMER">Customer</option>
+            <option value="ORGANIZER">Organizer</option>
+          </select>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-actions">
+          <button
+            type="submit"
+            class="btn-primary"
+            [disabled]="registerForm.invalid || (password && confirmPassword && password !== confirmPassword)"
+            aria-disabled="{{ registerForm.invalid ? 'true' : 'false' }}">
+            Register
+          </button>
+        </div>
+
+        <p class="small-note">
+          Already have an account?
+          <a routerLink="/login" class="link">Login here</a>
+        </p>
+      </form>
+    </section>
+  </main>
+</div>

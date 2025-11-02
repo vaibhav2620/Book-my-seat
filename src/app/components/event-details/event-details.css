@@ -1,4 +1,4 @@
-.container {
+/* .container {
   max-width: 800px;
 }
 
@@ -137,4 +137,204 @@
 }
 .alert {
   margin-top: 1rem;
+} */
+
+
+/* --- Global Theme Styles --- */
+
+/* Apply the dark blue background to the entire component area */
+/* You might want to apply this to a wrapper div outside .container if you want the background to span the full width like the header */
+.page
+{
+  margin-top: 0;
+  padding: 0;
+  height: 110%;
+  width: 100%;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  /* Add padding to the top for spacing */
+  padding-top: 2rem;
+}
+
+/* Style the main content area (event-details) to be a light "card" */
+.event-details {
+  background: linear-gradient(135deg, #59719e, #2a5298);; /* Light background for the content area */
+  border-radius: 12px; /* Rounded corners like the event cards */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 2.5rem; /* Generous padding inside the card */
+  color: #ffffff;
+}
+
+.event-details h2 {
+  color: #f8f8f8; /* A darker, coordinating blue for the main title */
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.event-details p{
+  color: #ffffff;
+}
+
+.text-muted {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Seat Layout Styles (Inside the card) --- */
+.seat-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.seat-layout h4 {
+  color: #ffffff; /* Blue for the 'Select Your Seats' header */
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.seat-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  /* Optional: Give the grid its own subtle background */
+  /* background-color: #f5f5f5; */
+  border-radius: 8px;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.seat {
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: 1px solid #90a4ae; /* Light blue/gray border */
+  background-color: #e0e0e0; /* Default available seat color */
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.seat:hover {
+  background-color: #bbdefb; /* Light blue on hover */
+}
+
+/* --- Seat Status Styles --- */
+
+/* Selected seat: Match the primary blue of the theme */
+.seat.selected {
+  background-color: #4a62ea; /* Primary Blue */
+  color: white;
+  border-color: #3f51b5;
+  font-weight: bold;
+}
+
+/* Booked seat: Using a muted grey from the list page's booked seat look */
+.seat.booked {
+  background-color: #78909c; /* Darker, clearly booked grey */
+  color: #eceff1;
+  cursor: not-allowed;
+  border-color: #78909c;
+  
+}
+
+/* --- Legend Styles --- */
+.legend {
+  margin-top: 25px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.legend .seat {
+  display: inline-block;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+/* Ensure legend colors are consistent */
+.legend .seat.available {
+  background-color: #e0e0e0;
+}
+.legend .seat.selected {
+  background-color: #4a62ea;
+}
+.legend .seat.booked {
+  background-color: #78909c;
+}
+
+/* --- Button Styles (Matching the vibrant red/pink gradient from the list page) --- */
+.btn {
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Book Now Button: Vibrant Red/Pink Gradient */
+.btn-primary {
+  /* Using a gradient similar to the list page's 'View Details' button */
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  border: none;
+  color: white;
+  box-shadow: 0 4px 6px rgba(255, 65, 108, 0.4);
+}
+
+.btn-primary:hover {
+  /* Slightly darker gradient on hover */
+  background: linear-gradient(to right, #e33e63, #e84525);
+  box-shadow: 0 6px 10px rgba(255, 65, 108, 0.5);
+}
+
+/* Back Button: A secondary blue that complements the theme */
+.btn-secondary {
+  background-color: #5866bf;
+  border: none;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #283593;
+}
+
+
+
+@media (max-width: 600px) {
+
+  .seat {
+    width: 10px;
+    height: 10px;
+    font-size: 0.75rem;
+    border-radius: 30%;
+    margin: 2px;
+  }
 }

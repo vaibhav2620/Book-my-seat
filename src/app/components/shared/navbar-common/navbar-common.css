@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.navbar-user .username {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #fff;
+}

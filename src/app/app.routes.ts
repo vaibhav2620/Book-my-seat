@@ -6,6 +6,9 @@ import { EventList } from './components/event-list/event-list';
 import { EventDetails } from './components/event-details/event-details';
 // import { SeatSelectionComponent } from './components/seat-selection/seat-selection';
 import { BookingConfirmation } from './components/booking-confirmation/booking-confirmation';
+import { Login } from './login/login';
+import { Register } from './register/register';
+import { authGuard } from './services/auth.guard';
 
 export const routes: Routes = [
 //   {
@@ -34,7 +37,17 @@ export const routes: Routes = [
     title: 'Booking Confirmation'
   },
   {
+    path: 'login',
+    component: Login,
+    title: 'Login Page'
+  },
+    {
+    path: 'register',
+    component: Register,
+    title: 'Sign UP Page'
+  },
+  {
     path: '**',
-    redirectTo: ''
+    redirectTo: '/login'
   }
 ];

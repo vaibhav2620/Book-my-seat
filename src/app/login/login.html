@@ -1,0 +1,43 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title">Welcome Back</h2>
+    <p class="login-subtitle">Log in to book your seats</p>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm" class="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+          placeholder="Enter your email"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+          placeholder="Enter your password"
+          class="form-control"
+        />
+      </div>
+
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid">
+        Login
+      </button>
+    </form>
+
+    <p class="signup-text">
+      Don't have an account?
+      <a routerLink="/register" class="signup-link">Register here</a>
+    </p>
+  </div>
+</div>

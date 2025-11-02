@@ -1,22 +1,28 @@
+
+<div class="page">
+<app-navbar-common [username]='username'></app-navbar-common>
+
 <div class="container mt-4">
 
-  <!-- Loading / Error -->
    @if (loading()) {
   <div  class="text-center fs-5 mt-5">Loading event details...</div>
 }
     @if (!loading() && error) {
   <div class="text-center text-danger mt-5">{{ error }}</div>
     }
-  <!-- Event Info -->
    @if (!loading() && !error && event) {
   <div  class="event-details">
     <h2 class="text-center mb-2">{{ event.title }}</h2>
     <p class="text-center text-muted">{{ event.description }}</p>
 
-    <!-- Seat Layout -->
     <div class="seat-layout mt-4">
       <h4 class="text-center mb-3">Select Your Seats</h4>
 
+      <div class="legend text-center mt-3">
+        <span class="seat available"></span> Available
+        <span class="seat selected"></span> Selected
+        <span class="seat booked"></span> Booked
+      </div>
       <div class="seat-grid">
         <div *ngFor="let row of getSeatRows()" class="seat-row">
           <div
@@ -32,15 +38,9 @@
         </div>
       </div>
 
-      <!-- Legend -->
-      <div class="legend text-center mt-3">
-        <span class="seat available"></span> Available
-        <span class="seat selected"></span> Selected
-        <span class="seat booked"></span> Booked
-      </div>
+
     </div>
 
-    <!-- Buttons -->
     <div class="text-center mt-4">
       <button class="btn btn-primary px-4 py-2" (click)="bookSeats()">Book Now</button>
       <button class="btn btn-secondary ms-2 px-4 py-2" routerLink="/events">Back</button>
@@ -48,3 +48,6 @@
   </div>
 }
 </div>
+
+</div>
+

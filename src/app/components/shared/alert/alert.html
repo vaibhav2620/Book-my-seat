@@ -1,0 +1,9 @@
+<!-- src/app/alert/alert.component.html -->
+<div class="alert-container">
+  @for (alert of alerts; track $index) {
+    <div [class]="cssClass(alert)" role="alert">
+    {{ alert.message }}
+    <button type="button" class="btn-close" aria-label="Close" (click)="removeAlert(alert)"></button>
+  </div>
+}
+</div>
